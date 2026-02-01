@@ -1,0 +1,4 @@
+/* No specific styles needed for this simple dialog, Material handles most of it */
+mat-dialog-content {
+  margin-top: 15px;
+}

@@ -1,0 +1,90 @@
+.todo-container {
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.mat-mdc-card-title {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.add-todo-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Increased gap for better spacing */
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 4px; /* Match Material design */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+}
+
+.full-width {
+  width: 100%;
+}
+
+.add-todo-form button {
+  align-self: flex-end; /* Align button to the right */
+  min-width: 120px; /* Give button a minimum width */
+}
+
+.loading-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px;
+  color: #007bff;
+  background-color: #e0f7fa;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+.todo-list {
+  margin-top: 20px;
+}
+
+.todo-list .mat-mdc-list-item {
+  margin-bottom: 8px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  background-color: #ffffff;
+  padding-right: 8px; /* Space for the delete button */
+}
+
+.todo-list li.completed {
+  background-color: #f0fdf4; /* Lighter green for completed */
+}
+
+.todo-list .mat-mdc-checkbox {
+  margin-right: 16px; /* Space between checkbox and text */
+}
+
+.todo-title {
+  font-weight: 500;
+  font-size: 16px;
+  color: #333;
+}
+
+.completed-text {
+  text-decoration: line-through;
+  color: #777;
+}
+
+.todo-description {
+  color: #555;
+  font-size: 14px;
+}
+
+.todo-created-at {
+  color: #888;
+  font-size: 12px;
+}
+
+/* Style for the MatSnackBar error message */
+.snackbar-error {
+  background-color: #d32f2f !important; /* Red background */
+  color: white !important; /* White text */
+}

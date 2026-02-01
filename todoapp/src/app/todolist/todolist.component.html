@@ -1,0 +1,67 @@
+<mat-card class="todo-container">
+  <mat-card-title>My Todo List</mat-card-title>
+  <mat-card-content>
+    <div class="add-todo-form">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Todo Title</mat-label>
+        <input
+          matInput
+          type="text"
+          [(ngModel)]="newTodoTitle"
+          placeholder="Enter todo title"
+          #titleInput="ngModel"
+          required
+        />
+        <mat-error *ngIf="titleInput.invalid && (titleInput.dirty || titleInput.touched)">
+          <span *ngIf="titleInput.errors?.['required']">Title is required.</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Description (optional)</mat-label>
+        <textarea
+          matInput
+          [(ngModel)]="newTodoDescription"
+          placeholder="Enter description"
+        ></textarea>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" (click)="addTodo()" [disabled]="loading || titleInput.invalid">
+        <mat-icon>add</mat-icon> Add Todo
+      </button>
+    </div>
+
+    <div *ngIf="loading" class="loading-spinner">
+      <mat-spinner diameter="30"></mat-spinner> Loading todos...
+    </div>
+    <!-- Error messages are now handled by MatSnackBar -->
+
+    <mat-list class="todo-list">
+      <mat-list-item *ngFor="let todo of todos" [class.completed]="todo.isCompleted">
+        <mat-checkbox
+          matListItemAvatar
+          [(ngModel)]="todo.isCompleted"
+          (change)="updateTodoStatus(todo)"
+        ></mat-checkbox>
+        <div class="todo-content">
+          <span matListItemTitle class="todo-title" [class.completed-text]="todo.isCompleted">
+            {{ todo.title }}
+          </span>
+          <span matListItemLine *ngIf="todo.description" class="todo-description">
+            {{ todo.description }}
+          </span>
+          <span matListItemLine class="todo-created-at">
+            Created: {{ todo.createdAt | date:'short' }}
+          </span>
+        </div>
+        <button mat-icon-button color="warn" (click)="deleteTodo(todo)" matListItemMeta>
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-list-item>
+    </mat-list>
+
+    <p *ngIf="todos.length === 0 && !loading">
+      No todos yet. Add one above!
+    </p>
+  </mat-card-content>
+</mat-card>
