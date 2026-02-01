@@ -2,11 +2,10 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TodolistComponent } from './todolist/todolist.component';
 
-import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, TodolistComponent, HttpClientModule], // Add HttpClientModule here
+  imports: [RouterOutlet, TodolistComponent], // HttpClient is provided via app.config.ts
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
