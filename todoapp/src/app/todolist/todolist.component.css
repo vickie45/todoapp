@@ -1,21 +1,41 @@
+/* General body styling for a softer background */
+body {
+  background-color: #f5f5f5; /* Light gray background */
+  font-family: 'Roboto', sans-serif; /* Ensure Material Design font */
+}
+
 .todo-container {
-  max-width: 600px;
+  max-width: 700px;
   margin: 20px auto;
+  padding: 24px; /* Increased padding for better spacing within the card */
+  border-radius: 8px; /* Slightly more rounded corners for the main card */
+  /* Material Design elevation for the main card */
+  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),
+              0px 5px 8px 0px rgba(0,0,0,0.14),
+              0px 1px 14px 0px rgba(0,0,0,0.12);
 }
 
 .mat-mdc-card-title {
   text-align: center;
-  color: #333;
+  color: #3f51b5; /* Primary Material Design color for title */
+  font-size: 2.2em; /* Larger title for prominence */
+  font-weight: 700; /* Bolder title */
   margin-bottom: 20px;
+  letter-spacing: -0.02em; /* Slightly tighter letter spacing */
+}
+
+.mat-mdc-card-subtitle {
+  text-align: center;
 }
 
 .add-todo-form {
   display: flex;
   flex-direction: column;
   gap: 15px; /* Increased gap for better spacing */
-  margin-bottom: 20px;
-  padding: 15px;
-  background-color: #fff;
+  margin-bottom: 30px; /* More space below the form */
+  padding: 20px; /* Increased padding for the form */
+  background-color: #ffffff; /* White background for the form */
+  border: 1px solid #e0e0e0; /* Subtle border for definition */
   border-radius: 4px; /* Match Material design */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow */
 }
@@ -25,7 +45,10 @@
 }
 
 .add-todo-form button {
-  align-self: flex-end; /* Align button to the right */
+  align-self: flex-end; /* Align button to the right for better flow */
+  margin-top: 10px; /* Space above the button */
+  background-color: #3f51b5; /* Primary color for the add button */
+  color: white; /* White text for contrast */
   min-width: 120px; /* Give button a minimum width */
 }
 
@@ -36,9 +59,13 @@
   gap: 10px;
   padding: 15px;
   color: #007bff;
-  background-color: #e0f7fa;
+  background-color: #e3f2fd; /* Lighter blue for loading */
   border-radius: 4px;
   margin-bottom: 15px;
+}
+
+.section-divider {
+  margin: 20px 0; /* Space around dividers */
 }
 
 .todo-list {
@@ -46,41 +73,88 @@
 }
 
 .todo-list .mat-mdc-list-item {
-  margin-bottom: 8px;
-  border: 1px solid #e0e0e0;
-  border-radius: 4px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  margin-bottom: 10px; /* Slightly more space between list items */
+  border: none; /* Remove border, rely on shadow for separation */
+  border-radius: 8px; /* More rounded corners for list items */
+  /* Material Design elevation for list items */
+  box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),
+              0px 1px 1px 0px rgba(0,0,0,0.14),
+              0px 1px 3px 0px rgba(0,0,0,0.12);
   background-color: #ffffff;
-  padding-right: 8px; /* Space for the delete button */
+  padding: 12px 16px; /* Adjust padding for better internal spacing */
+  transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth transitions */
+  display: flex; /* Ensure flex for proper alignment of checkbox, content, and button */
+  align-items: center; /* Vertically align items */
+}
+.todo-list .mat-mdc-list-item:hover {
+  background-color: #f9f9f9; /* Subtle hover effect */
+  /* Higher elevation on hover */
+  box-shadow: 0px 5px 5px -3px rgba(0,0,0,0.2),
+              0px 8px 10px 1px rgba(0,0,0,0.14),
+              0px 3px 14px 2px rgba(0,0,0,0.12);
 }
 
 .todo-list li.completed {
   background-color: #f0fdf4; /* Lighter green for completed */
 }
 
-.todo-list .mat-mdc-checkbox {
-  margin-right: 16px; /* Space between checkbox and text */
+.todo-content {
+  display: flex;
+  flex-direction: column; /* Stack title, description, created at */
+  flex-grow: 1; /* Allow content to take available space */
+  padding-right: 10px; /* Space before delete button */
+  margin-left: 16px; /* Space after checkbox */
 }
 
 .todo-title {
-  font-weight: 500;
-  font-size: 16px;
-  color: #333;
+  font-weight: 600; /* Slightly bolder title */
+  font-size: 1.1em; /* Slightly larger title */
+  color: #424242; /* Darker gray for better contrast */
+  margin-bottom: 2px; /* Space between title and description */
 }
 
 .completed-text {
   text-decoration: line-through;
-  color: #777;
+  color: #9e9e9e; /* Lighter gray for completed text */
+  font-style: italic; /* Italicize completed text */
 }
 
 .todo-description {
-  color: #555;
-  font-size: 14px;
+  color: #616161; /* Medium gray for description */
+  font-size: 0.9em; /* Slightly smaller description */
+  line-height: 1.4; /* Improve readability */
+  margin-bottom: 4px; /* Space between description and created at */
 }
 
 .todo-created-at {
+  color: #9e9e9e; /* Lighter gray for timestamp */
+  font-size: 0.75em; /* Smaller font size */
+  align-self: flex-start; /* Align created at to the left within its column */
+  margin-top: 5px; /* Space above timestamp */
+}
+
+/* Style for the delete button */
+.todo-list .mat-icon-button {
+  color: #ef5350; /* Red color for delete icon */
+  margin-left: auto; /* Push button to the far right */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .todo-container {
+    margin: 10px;
+    padding: 15px;
+  }
+}
+
+.empty-list-message {
+  text-align: center;
   color: #888;
-  font-size: 12px;
+  padding: 20px;
+  font-style: italic;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  margin-top: 20px;
 }
 
 /* Style for the MatSnackBar error message */

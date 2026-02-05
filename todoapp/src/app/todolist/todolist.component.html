@@ -1,6 +1,9 @@
 <mat-card class="todo-container">
   <mat-card-title>My Todo List</mat-card-title>
+  <mat-card-subtitle>Organize your tasks efficiently.</mat-card-subtitle>
   <mat-card-content>
+    <mat-divider class="section-divider"></mat-divider>
+
     <div class="add-todo-form">
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Todo Title</mat-label>
@@ -29,6 +32,8 @@
       <button mat-raised-button color="primary" (click)="addTodo()" [disabled]="loading || titleInput.invalid">
         <mat-icon>add</mat-icon> Add Todo
       </button>
+
+      <mat-divider class="section-divider"></mat-divider>
     </div>
 
     <div *ngIf="loading" class="loading-spinner">
@@ -60,7 +65,7 @@
       </mat-list-item>
     </mat-list>
 
-    <p *ngIf="todos.length === 0 && !loading">
+    <p *ngIf="todos.length === 0 && !loading" class="empty-list-message">
       No todos yet. Add one above!
     </p>
   </mat-card-content>

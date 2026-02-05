@@ -1,3 +1,9 @@
 
-<router-outlet />
-<app-todolist></app-todolist>
+<mat-toolbar color="primary">
+  <span>{{ title }}</span>
+</mat-toolbar>
+
+<div class="main-content">
+  <router-outlet />
+  <app-todolist></app-todolist>
+</div>
